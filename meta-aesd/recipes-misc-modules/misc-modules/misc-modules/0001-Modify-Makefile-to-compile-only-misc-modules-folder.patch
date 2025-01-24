@@ -1,0 +1,31 @@
+From fff14f8f948165c98cff6dbca34feb6ec0b04c49 Mon Sep 17 00:00:00 2001
+From: matheuschenrique <matheuschenrique1@gmail.com>
+Date: Sun, 29 Dec 2024 23:47:46 -0300
+Subject: [PATCH] Modify Makefile to compile only misc-modules folder
+
+---
+ Makefile | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..3573ae0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,13 +1,5 @@
+-
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
+-
+-all: subdirs
+-
+-subdirs:
+-	for n in $(SUBDIRS); do $(MAKE) -C $$n || exit 1; done
++all:
++	$(MAKE) -C misc-modules
+ 
+ clean:
+-	for n in $(SUBDIRS); do $(MAKE) -C $$n clean; done
++	$(MAKE) -C misc-modules clean
+\ No newline at end of file
